@@ -11,7 +11,7 @@ class Example(QWidget):
 
     def initUI(self):
         self.setGeometry(600, 300, 500, 500)
-        self.setWindowTitle('Git и желтые окружности')
+        self.setWindowTitle('Git и случайные окружности')
 
         font = QFont()
         font.setPointSize(16)
@@ -37,7 +37,9 @@ class Example(QWidget):
     def paint(self):
         qp = QPainter()
         qp.begin(self)
-        qp.setBrush(QColor(255, 211, 0))
+        color = QColor(randint(0, 255), randint(0, 255), randint(0, 255))
+        qp.setBrush(color)
+        qp.setPen(color)
         r = randint(50, 350)
         qp.drawEllipse(randint(50, 450) - (r // 4), randint(50, 450) - (r // 4), r // 2, r // 2)
         qp.end()
